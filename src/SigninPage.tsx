@@ -75,7 +75,7 @@ function SigninPageComponent(props: Partial<SigninPageProps>) {
         </Text>
 
         <PrimaryButton
-          className="teamsButton"
+          className="teamsButton signin"
           onClick={() => onSignIn()}
           ariaLabel={translate('signin.button.ariaLabel')}
         >

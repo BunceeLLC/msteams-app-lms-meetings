@@ -7,6 +7,8 @@ import { OnlineMeeting } from './meeting-creator/models';
 import { Header } from './components/header';
 import { FormattedMessage } from 'react-intl';
 import { translate } from './localization/translate';
+import moment from 'moment';
+import "moment-timezone";
 
 interface CopyMeetingPageProps {
   meeting?: OnlineMeeting;
@@ -42,6 +44,21 @@ const mapDispatchToProps = (dispatch: Dispatch) => ({
 });
 
 function CopyMeetingPageComponent(props: CopyMeetingPageProps) {
+  let normalizedMeeting = {};
+  if (props.meeting) {
+    normalizedMeeting = {
+      "meetingLink": props.meeting.joinUrl,
+      "meetingSubject": props.meeting.subject ? props.meeting.subject : "Meeting",
+      "meetingStartDate": props.meeting.startDateTime.tz(moment.tz.guess()).format("MMM Do YYYY, h:mm a zz"),
+      "meetingEndDate": props.meeting.endDateTime.tz(moment.tz.guess()).format("MMM Do YYYY, h:mm a zz"),
+    }
+  }
+
+  window.parent.postMessage({
+    action: 'returnData',
+    value: JSON.stringify(normalizedMeeting),
+  }, '*');
+
   return (
     <>
       <Header />

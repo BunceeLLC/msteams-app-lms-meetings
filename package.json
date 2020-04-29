@@ -2,7 +2,9 @@
   "name": "teams-lms-meeting-creator",
   "version": "0.1.0",
   "private": true,
+  "homepage": "./",
   "dependencies": {
+    "@types/moment-timezone": "^0.5.13",
     "@types/react-intl": "3.0.0",
     "@uifabric/fluent-theme": "7.1.35",
     "axios": "0.19.2",

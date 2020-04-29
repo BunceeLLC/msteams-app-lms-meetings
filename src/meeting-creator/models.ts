@@ -10,6 +10,7 @@ export interface OnlineMeetingInput {
 export interface OnlineMeeting {
   id: string;
   joinWebUrl: string;
+  joinUrl: string;
   subject: string;
   videoTeleconferenceId: string;
   creationDateTime: Moment;
