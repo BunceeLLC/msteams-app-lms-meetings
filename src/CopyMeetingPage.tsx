@@ -51,6 +51,7 @@ function CopyMeetingPageComponent(props: CopyMeetingPageProps) {
       "meetingSubject": props.meeting.subject ? props.meeting.subject : "Meeting",
       "meetingStartDate": props.meeting.startDateTime.tz(moment.tz.guess()).format("MMM Do YYYY, h:mm a zz"),
       "meetingEndDate": props.meeting.endDateTime.tz(moment.tz.guess()).format("MMM Do YYYY, h:mm a zz"),
+      "meetingId": props.meeting.id,
     }
   }
 
